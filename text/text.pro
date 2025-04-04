@@ -1,6 +1,6 @@
 QMAKE_CXXFLAGS += -std=c++11
 
-TARGET = P14_text
+TARGET = test_text
 
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a
@@ -19,7 +19,7 @@ HEADERS += \
     ../general/systeme.h \
     ../general/vecteur3D.h \
     ../general/integrateur.h \
-    ../general/contraintes.h \
+    ../general/contrainte.h \
     ../general/constantes.h \
     text_viewer.h \
     ../general/dessinable.h \
