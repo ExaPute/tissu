@@ -1,4 +1,4 @@
-#include "tissuCompose.h"
+#include "../include/tissuCompose.h"
 
 
 TissuCompose::TissuCompose(std::vector<Tissu*> vector_tissu_, double epsilon_,double k_, double lo_)

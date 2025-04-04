@@ -1,8 +1,8 @@
 #include <iostream>
-#include "tissu.h"
-#include "ressort.h"
-#include "masse.h"
-#include "support_a_dessin.h"
+#include "../include/tissu.h"
+#include "../include/ressort.h"
+#include "../include/masse.h"
+#include "../include/support_a_dessin.h"
 using namespace std;
 
 

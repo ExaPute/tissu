@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = P11_gl1.0.0
-DISTDIR = /home/pierre/source/tissu/Qt_GL/.tmp/P11_gl1.0.0
+DISTDIR = /home/pierre/source/tissu/Qt_GL/build/obj/P11_gl1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) -L../general -lgeneral /usr/lib/x86_64-linux-gnu/libQt5OpenGL.so /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
@@ -48,17 +48,17 @@ STRIP         = strip
 
 ####### Output directory
 
-OBJECTS_DIR   = ./
+OBJECTS_DIR   = build/obj/
 
 ####### Files
 
 SOURCES       = main_qt_gl.cc \
 		glwidget.cc \
 		vue_opengl.cc qrc_resource.cpp
-OBJECTS       = main_qt_gl.o \
-		glwidget.o \
-		vue_opengl.o \
-		qrc_resource.o
+OBJECTS       = build/obj/main_qt_gl.o \
+		build/obj/glwidget.o \
+		build/obj/vue_opengl.o \
+		build/obj/qrc_resource.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -139,18 +139,18 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		Qt_GL.pro glwidget.h \
 		vertex_shader.h \
 		vue_opengl.h \
-		../general/contraintes.h \
-		../general/dessinable.h \
-		../general/support_a_dessin.h \
-		../general/constantes.h \
-		../general/integrateur.h \
-		../general/masse.h \
-		../general/ressort.h \
-		../general/tissuCompose.h \
-		../general/tissuDisque.h \
-		../general/tissuRectangle.h \
-		../general/tissu.h \
-		../general/systeme.h main_qt_gl.cc \
+		../general/include/contraintes.h \
+		../general/include/dessinable.h \
+		../general/include/support_a_dessin.h \
+		../general/include/constantes.h \
+		../general/include/integrateur.h \
+		../general/include/masse.h \
+		../general/include/ressort.h \
+		../general/include/tissuCompose.h \
+		../general/include/tissuDisque.h \
+		../general/include/tissuRectangle.h \
+		../general/include/tissu.h \
+		../general/include/systeme.h main_qt_gl.cc \
 		glwidget.cc \
 		vue_opengl.cc
 QMAKE_TARGET  = P11_gl
@@ -339,7 +339,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resource.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents glwidget.h vertex_shader.h vue_opengl.h ../general/contraintes.h ../general/dessinable.h ../general/support_a_dessin.h ../general/constantes.h ../general/integrateur.h ../general/masse.h ../general/ressort.h ../general/tissuCompose.h ../general/tissuDisque.h ../general/tissuRectangle.h ../general/tissu.h ../general/systeme.h $(DISTDIR)/
+	$(COPY_FILE) --parents glwidget.h vertex_shader.h vue_opengl.h ../general/include/contraintes.h ../general/include/dessinable.h ../general/include/support_a_dessin.h ../general/include/constantes.h ../general/include/integrateur.h ../general/include/masse.h ../general/include/ressort.h ../general/include/tissuCompose.h ../general/include/tissuDisque.h ../general/include/tissuRectangle.h ../general/include/tissu.h ../general/include/systeme.h $(DISTDIR)/
 	$(COPY_FILE) --parents main_qt_gl.cc glwidget.cc vue_opengl.cc $(DISTDIR)/
 
 
@@ -396,53 +396,53 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean
 
 ####### Compile
 
-main_qt_gl.o: main_qt_gl.cc glwidget.h \
+build/obj/main_qt_gl.o: main_qt_gl.cc glwidget.h \
 		vue_opengl.h \
-		../general/support_a_dessin.h \
-		../general/systeme.h \
-		../general/tissu.h \
-		../general/ressort.h \
-		../general/vecteur3D.h \
-		../general/masse.h \
-		../general/constantes.h \
-		../general/dessinable.h \
-		../general/integrateur.h \
-		../general/contrainte.h \
-		../general/tissuRectangle.h \
-		../general/tissuDisque.h \
-		../general/tissuCompose.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main_qt_gl.o main_qt_gl.cc
+		../general/include/support_a_dessin.h \
+		../general/include/systeme.h \
+		../general/include/tissu.h \
+		../general/include/ressort.h \
+		../general/include/vecteur3D.h \
+		../general/include/masse.h \
+		../general/include/constantes.h \
+		../general/include/dessinable.h \
+		../general/include/integrateur.h \
+		../general/include/contrainte.h \
+		../general/include/tissuRectangle.h \
+		../general/include/tissuDisque.h \
+		../general/include/tissuCompose.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/main_qt_gl.o main_qt_gl.cc
 
-glwidget.o: glwidget.cc glwidget.h \
+build/obj/glwidget.o: glwidget.cc glwidget.h \
 		vue_opengl.h \
-		../general/support_a_dessin.h \
-		../general/systeme.h \
-		../general/tissu.h \
-		../general/ressort.h \
-		../general/vecteur3D.h \
-		../general/masse.h \
-		../general/constantes.h \
-		../general/dessinable.h \
-		../general/integrateur.h \
-		../general/contrainte.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o glwidget.o glwidget.cc
+		../general/include/support_a_dessin.h \
+		../general/include/systeme.h \
+		../general/include/tissu.h \
+		../general/include/ressort.h \
+		../general/include/vecteur3D.h \
+		../general/include/masse.h \
+		../general/include/constantes.h \
+		../general/include/dessinable.h \
+		../general/include/integrateur.h \
+		../general/include/contrainte.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/glwidget.o glwidget.cc
 
-vue_opengl.o: vue_opengl.cc vue_opengl.h \
-		../general/support_a_dessin.h \
+build/obj/vue_opengl.o: vue_opengl.cc vue_opengl.h \
+		../general/include/support_a_dessin.h \
 		vertex_shader.h \
-		../general/systeme.h \
-		../general/tissu.h \
-		../general/ressort.h \
-		../general/vecteur3D.h \
-		../general/masse.h \
-		../general/constantes.h \
-		../general/dessinable.h \
-		../general/integrateur.h \
-		../general/contrainte.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vue_opengl.o vue_opengl.cc
+		../general/include/systeme.h \
+		../general/include/tissu.h \
+		../general/include/ressort.h \
+		../general/include/vecteur3D.h \
+		../general/include/masse.h \
+		../general/include/constantes.h \
+		../general/include/dessinable.h \
+		../general/include/integrateur.h \
+		../general/include/contrainte.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/vue_opengl.o vue_opengl.cc
 
-qrc_resource.o: qrc_resource.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp
+build/obj/qrc_resource.o: qrc_resource.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resource.o qrc_resource.cpp
 
 ####### Install
 

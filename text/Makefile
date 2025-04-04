@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = test_text1.0.0
-DISTDIR = /home/pierre/source/tissu/text/.tmp/test_text1.0.0
+DISTDIR = /home/pierre/source/tissu/text/build/obj/test_text1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) -L../general -lgeneral /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
@@ -48,14 +48,14 @@ STRIP         = strip
 
 ####### Output directory
 
-OBJECTS_DIR   = ./
+OBJECTS_DIR   = build/obj/
 
 ####### Files
 
 SOURCES       = main_text.cc \
 		text_viewer.cc 
-OBJECTS       = main_text.o \
-		text_viewer.o
+OBJECTS       = build/obj/main_text.o \
+		build/obj/text_viewer.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -132,18 +132,19 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		text.pro ../general/tissu.h \
-		../general/tissuRectangle.h \
-		../general/masse.h \
-		../general/ressort.h \
-		../general/systeme.h \
-		../general/vecteur3D.h \
-		../general/integrateur.h \
-		../general/contrainte.h \
-		../general/constantes.h \
-		text_viewer.h \
-		../general/dessinable.h \
-		../general/support_a_dessin.h main_text.cc \
+		text.pro ../general/include/contraintes.h \
+		../general/include/dessinable.h \
+		../general/include/support_a_dessin.h \
+		../general/include/constantes.h \
+		../general/include/integrateur.h \
+		../general/include/masse.h \
+		../general/include/ressort.h \
+		../general/include/tissuCompose.h \
+		../general/include/tissuDisque.h \
+		../general/include/tissuRectangle.h \
+		../general/include/tissu.h \
+		../general/include/systeme.h \
+		text_viewer.h main_text.cc \
 		text_viewer.cc
 QMAKE_TARGET  = test_text
 DESTDIR       = 
@@ -326,7 +327,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../general/tissu.h ../general/tissuRectangle.h ../general/masse.h ../general/ressort.h ../general/systeme.h ../general/vecteur3D.h ../general/integrateur.h ../general/contrainte.h ../general/constantes.h text_viewer.h ../general/dessinable.h ../general/support_a_dessin.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../general/include/contraintes.h ../general/include/dessinable.h ../general/include/support_a_dessin.h ../general/include/constantes.h ../general/include/integrateur.h ../general/include/masse.h ../general/include/ressort.h ../general/include/tissuCompose.h ../general/include/tissuDisque.h ../general/include/tissuRectangle.h ../general/include/tissu.h ../general/include/systeme.h text_viewer.h $(DISTDIR)/
 	$(COPY_FILE) --parents main_text.cc text_viewer.cc $(DISTDIR)/
 
 
@@ -374,32 +375,32 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-main_text.o: main_text.cc text_viewer.h \
-		../general/support_a_dessin.h \
-		../general/systeme.h \
-		../general/tissu.h \
-		../general/ressort.h \
-		../general/vecteur3D.h \
-		../general/masse.h \
-		../general/constantes.h \
-		../general/dessinable.h \
-		../general/integrateur.h \
-		../general/contrainte.h \
-		../general/tissuRectangle.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main_text.o main_text.cc
+build/obj/main_text.o: main_text.cc text_viewer.h \
+		../general/include/support_a_dessin.h \
+		../general/include/systeme.h \
+		../general/include/tissu.h \
+		../general/include/ressort.h \
+		../general/include/vecteur3D.h \
+		../general/include/masse.h \
+		../general/include/constantes.h \
+		../general/include/dessinable.h \
+		../general/include/integrateur.h \
+		../general/include/contrainte.h \
+		../general/include/tissuRectangle.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/main_text.o main_text.cc
 
-text_viewer.o: text_viewer.cc text_viewer.h \
-		../general/support_a_dessin.h \
-		../general/systeme.h \
-		../general/tissu.h \
-		../general/ressort.h \
-		../general/vecteur3D.h \
-		../general/masse.h \
-		../general/constantes.h \
-		../general/dessinable.h \
-		../general/integrateur.h \
-		../general/contrainte.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o text_viewer.o text_viewer.cc
+build/obj/text_viewer.o: text_viewer.cc text_viewer.h \
+		../general/include/support_a_dessin.h \
+		../general/include/systeme.h \
+		../general/include/tissu.h \
+		../general/include/ressort.h \
+		../general/include/vecteur3D.h \
+		../general/include/masse.h \
+		../general/include/constantes.h \
+		../general/include/dessinable.h \
+		../general/include/integrateur.h \
+		../general/include/contrainte.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/text_viewer.o text_viewer.cc
 
 ####### Install
 

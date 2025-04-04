@@ -1,4 +1,4 @@
-#include "tissuDisque.h"	
+#include "../include/tissuDisque.h"	
 #include <cmath>
 
 

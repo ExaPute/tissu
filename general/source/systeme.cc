@@ -1,6 +1,6 @@
-#include "systeme.h"
-#include "dessinable.h"
-#include "support_a_dessin.h"
+#include "../include/systeme.h"
+#include "../include/dessinable.h"
+#include "../include/support_a_dessin.h"
 
 void Systeme::dessine_sur(SupportADessin& support){
     support.dessine(*this);

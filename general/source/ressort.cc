@@ -1,9 +1,9 @@
 #include <iostream>
-#include "ressort.h"
-#include "masse.h"
-#include "vecteur3D.h"
-#include "constantes.h"
-#include "support_a_dessin.h"
+#include "../include/ressort.h"
+#include "../include/masse.h"
+#include "../include/vecteur3D.h"
+#include "../include/constantes.h"
+#include "../include/support_a_dessin.h"
 
 using namespace std;
 

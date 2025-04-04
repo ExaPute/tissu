@@ -3,19 +3,21 @@ TEMPLATE = lib
 CONFIG = staticlib
 QMAKE_CXXFLAGS += -std=c++11
 
-SOURCES = masse.cc tissu.cc ressort.cc systeme.cc constantes.cc vecteur3D.cc integrateur.cc tissuRectangle.cc tissuDisque.cc contrainte.cc tissuCompose.cc
+# Dossier pour les fichiers objets
+OBJECTS_DIR = build/obj
 
-HEADERS += \
-    masse.h \
-    dessinable.h \
-    tissu.h \
-    ressort.h \
-    systeme.h \
-    contrainte.h \
-    constantes.h \
-    vecteur3D.h \
-    integrateur.h\
-    tissuCompose.h\
-    tissuRectangle.h\
-    tissuDisque.h \
-    support_a_dessin.h
+SOURCES = source/masse.cc source/tissu.cc source/ressort.cc source/systeme.cc source/constantes.cc source/vecteur3D.cc source/integrateur.cc source/tissuRectangle.cc source/tissuDisque.cc source/contrainte.cc source/tissuCompose.cc
+
+HEADERS = include/masse.h \
+        include/dessinable.h \
+        include/tissu.h \
+        include/ressort.h \
+        include/systeme.h \
+        include/contrainte.h \
+        include/constantes.h \
+        include/vecteur3D.h \
+        include/integrateur.h \
+        include/tissuCompose.h \
+        include/tissuRectangle.h \
+        include/tissuDisque.h \
+        include/support_a_dessin.h

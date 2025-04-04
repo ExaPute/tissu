@@ -1,7 +1,7 @@
 #include <array>
 #include <iostream>
 #include <cmath>
-#include "vecteur3D.h"
+#include "../include/vecteur3D.h"
 
 using namespace std;
 

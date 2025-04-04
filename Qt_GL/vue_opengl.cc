@@ -1,6 +1,6 @@
 #include "vue_opengl.h"
 #include "vertex_shader.h" // Identifiants Qt de nos différents attributs
-#include "../general/systeme.h"
+#include "../general/include/systeme.h"
 
 // ======================================================================
 void VueOpenGL::dessine(Tissu const& a_dessiner)

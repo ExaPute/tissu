@@ -1,6 +1,6 @@
 #include <iostream> // pour endl
 #include "text_viewer.h"
-#include "../general/systeme.h"
+#include "../general/include/systeme.h"
 
 
 void TextViewer::dessine(Tissu const& t){

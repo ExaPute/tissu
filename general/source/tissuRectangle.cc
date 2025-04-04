@@ -1,4 +1,4 @@
-#include "tissuRectangle.h"
+#include "../include/tissuRectangle.h"
 
 TissuRectangle::TissuRectangle(Vecteur3D direction1, Vecteur3D direction2, Vecteur3D position_, double masse_, double k_, double lo_, double densite_, double mu_):
 a(direction1), b(direction2), position(position_), masse(masse_),k(k_),lo(lo_), densite(densite_), mu(mu_){

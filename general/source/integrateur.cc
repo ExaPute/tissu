@@ -1,6 +1,6 @@
-#include "vecteur3D.h"
-#include "masse.h"
-#include "integrateur.h"
+#include "../include/vecteur3D.h"
+#include "../include/masse.h"
+#include "../include/integrateur.h"
 
 
 

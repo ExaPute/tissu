@@ -1,7 +1,7 @@
 #include <iostream>
 #include "text_viewer.h"
-#include "../general/systeme.h"
-#include "../general/tissuRectangle.h"
+#include "../general/include/systeme.h"
+#include "../general/include/tissuRectangle.h"
 using namespace std;
 
 int main()

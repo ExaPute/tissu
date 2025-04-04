@@ -2,7 +2,7 @@
 
 #include <QOpenGLShaderProgram> // Classe qui regroupe les fonctions OpenGL liées aux shaders
 #include <QMatrix4x4>
-#include "support_a_dessin.h"
+#include "../general/include/support_a_dessin.h"
 
 class VueOpenGL : public SupportADessin {
  public:

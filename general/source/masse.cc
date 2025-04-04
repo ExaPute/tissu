@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include "masse.h"
-#include "ressort.h"
-#include "vecteur3D.h"
-#include "constantes.h"
-#include "support_a_dessin.h"
+#include "../include/masse.h"
+#include "../include/ressort.h"
+#include "../include/vecteur3D.h"
+#include "../include/constantes.h"
+#include "../include/support_a_dessin.h"
 #include <algorithm>
 #include <cmath>
 

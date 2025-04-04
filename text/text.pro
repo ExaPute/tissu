@@ -5,6 +5,8 @@ TARGET = test_text
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a
 
+OBJECTS_DIR = build/obj
+
 INCLUDEPATH = ../general
 
 SOURCES += \
@@ -12,15 +14,17 @@ SOURCES += \
     text_viewer.cc
 
 HEADERS += \
-    ../general/tissu.h \
-    ../general/tissuRectangle.h\
-    ../general/masse.h \
-    ../general/ressort.h \
-    ../general/systeme.h \
-    ../general/vecteur3D.h \
-    ../general/integrateur.h \
-    ../general/contrainte.h \
-    ../general/constantes.h \
-    text_viewer.h \
-    ../general/dessinable.h \
-    ../general/support_a_dessin.h
+   ../general/include/contraintes.h \
+    ../general/include/dessinable.h \
+    ../general/include/support_a_dessin.h \
+    ../general/include/constantes.h \
+    ../general/include/integrateur.h \
+    ../general/include/masse.h \
+    ../general/include/ressort.h \
+    ../general/include/tissuCompose.h\
+    ../general/include/tissuDisque.h\
+    ../general/include/tissuRectangle.h\
+    ../general/include/tissu.h \
+    ../general/include/systeme.h \
+    text_viewer.h
+

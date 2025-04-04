@@ -1,11 +1,11 @@
 #include <QApplication>
 #include "glwidget.h"
 #include <vector>
-#include "../general/systeme.h"
-#include "../general/tissuRectangle.h"
-#include "../general/tissuDisque.h"
-#include "../general/tissuCompose.h"
-#include "../general/contrainte.h"
+#include "../general/include/systeme.h"
+#include "../general/include/tissuRectangle.h"
+#include "../general/include/tissuDisque.h"
+#include "../general/include/tissuCompose.h"
+#include "../general/include/contrainte.h"
 int main(int argc, char* argv[])
 {
   QApplication a(argc, argv);
